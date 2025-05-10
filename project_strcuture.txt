@@ -1,0 +1,26 @@
+music-mental-health-website/
+│
+├── index.html
+├── about.html (copy from index.html and change sections later)
+├── link.html
+├── examples.html
+├── studies.html
+├── tips.html
+├── contact.html
+├── feedback.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── script.js
+│
+├── images/
+│   └── music-mental-health.jpg (you can find a nice background image)
+│
+├── audio/
+│   └── (future audio files)
+│
+├── video/
+│   └── (future video files)
+└── README.md

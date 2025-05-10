@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- KyJahmy Phillip -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music & Mental Health</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🎶 Mindful Music</div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('link') }}">Connection</a></li>
+                <li><a href="{{ url_for('examples') }}">Examples</a></li>
+                <li><a href="{{ url_for('studies') }}">Studies</a></li>
+                <li><a href="{{ url_for('tips') }}">Tips</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Music & Mental Health</h1>
+        <p>Discover how music can support emotional well-being and mental clarity.</p>
+        <img src="{{ url_for('static', filename='images/music-mental-health.jpg') }}" alt="Music and Mental Health" class="hero-image" width="300">
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="section">
+        <h2 >Our Mission</h2>
+        <p>To explore the deep connection between music and mental wellness, and to provide resources that inspire healing through sound.</p>
+        <a href="{{ url_for('about') }}" class="btn">More About</a>
+    </section>
+
+    <!-- Connection -->
+  <section class="section alt-bg">
+    <h2>🧠 Music & Mind Connection</h2>
+    <p>Discover how melodies influence mood, reduce stress, and support emotional health through both science and experience.</p>
+    <a href="{{ url_for('link') }}" class="btn">Explore Connections</a>
+  </section>
+
+  <!-- Studies -->
+  <section class="section">
+    <h2>📚 Studies & Real Examples</h2>
+    <p>From clinical research to personal stories, learn how music therapy makes a difference in real lives.</p>
+    <a href="{{ url_for('studies') }}" class="btn">View Studies</a>
+  </section>
+
+  <!-- Tips -->
+  <section class="section alt-bg">
+    <h2>💡 Tips for Daily Wellness</h2>
+    <p>Simple, effective ways to use music for self-care and emotional balance.</p>
+    <a href="{{ url_for('tips') }}" class="btn">Get Tips</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mindful Music. All rights reserved.</p>
+  </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- JavaScript to toggle the hamburger menu -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Music & Mental Health</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🎶 Mindful Music</div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('link') }}">Connection</a></li>
+                <li><a href="{{ url_for('examples') }}">Examples</a></li>
+                <li><a href="{{ url_for('studies') }}">Studies</a></li>
+                <li><a href="{{ url_for('tips') }}">Tips</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="section about-section">
+        <h2 class="gradient-text">About Me</h2>
+        <img src="static/images/headshot.jpg" alt="Photo of KyJahmy Phillip" class="about-photo">
+        
+        <p class="intro-text">
+            Hello! I'm KyJahmy Phillip, a junior at Long Island University studying Computer Science. I am passionate about using music as a tool for mental wellness. This site explores the deep connection between music and mental health.
+        </p>
+    
+        <p class="main-text">
+            I've always been deeply passionate about music—not only as entertainment, but also as a hobby. Music can be used as a powerful tool for emotional and mental well-being. My personal experiences and academic research have shown me how deeply music can impact our moods, help us heal, and bring peace during difficult times.
+        </p>
+
+        <p class="main-text">
+            Through this project, I aim to spread awareness about the link between music and mental health, share helpful tips, and showcase real-world examples that demonstrate music's incredible power to soothe the mind.
+        </p>
+    
+        <h3 class="section-subtitle">Why This Topic?</h3>
+        <ul class="about-list">
+            <li>💬 Music can reduce anxiety and stress.</li>
+            <li>💬 Certain songs have scientifically proven therapeutic effects.</li>
+            <li>💬 Everyone can find healing through music — no special skills required.</li>
+        </ul>
+    
+        <h3 class="section-subtitle">Fun Facts About Me:</h3>
+        <ul class="about-list">
+            <li>🏃‍♂️ I am a Track and Field Athlete at LIU.</li>
+            <li>🎵 My favorite genres are hip-hop and reggae!</li>
+            <li>🧠 I'm passionate about mental health advocacy!</li>
+        </ul>
+    </section>
+
+    <div class="spotify-embed-container">
+        <h3 class="playlist-heading">🎧 Our Community Playlist</h3>
+        <p class="playlist-subtext">Listen to songs that uplift, relax, and inspire — in collaboration by our community.</p>
+        <iframe 
+            style="border-radius:20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);" 
+            src="https://open.spotify.com/embed/playlist/6y8gsF8ARA3F0IDxyShsHv?utm_source=generator" 
+            width="100%" 
+            height="400" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mindful Music. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

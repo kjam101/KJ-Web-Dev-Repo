@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      margin-top: 20px;
+      border: 1px solid #c3e6cb;
+      border-radius: 5px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      margin-top: 20px;
+      border: 1px solid #f5c6cb;
+      border-radius: 5px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .star {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .star.selected {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">🎶 Mindful Music</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('link') }}">Connection</a></li>
+      <li><a href="{{ url_for('examples') }}">Examples</a></li>
+      <li><a href="{{ url_for('studies') }}">Studies</a></li>
+      <li><a href="{{ url_for('tips') }}">Tips</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Feedback</h2>
+
+  <!-- Star Rating -->
+  <div class="star-rating">
+    <span class="star" data-value="5">&#9733;</span>
+    <span class="star" data-value="4">&#9733;</span>
+    <span class="star" data-value="3">&#9733;</span>
+    <span class="star" data-value="2">&#9733;</span>
+    <span class="star" data-value="1">&#9733;</span>
+  </div>
+
+  <!-- Feedback Form -->
+  <form id="feedback-form" method="POST" action="{{ url_for('feedback') }}">
+    <input type="hidden" name="rating" id="rating" />
+    <textarea id="comment" name="comment" placeholder="Leave a comment..." required></textarea><br>
+    <button type="submit">Submit Feedback</button>
+  </form>
+
+  <!-- Feedback Messages -->
+  {% if success %}
+    <div class="success-message">{{ success }}</div>
+  {% elif error %}
+    <div class="error-message">{{ error }}</div>
+  {% endif %}
+</section>
+
+<footer>
+  <p>&copy; 2025 Mindful Music. All rights reserved.</p>
+</footer>
+
+<script>
+  const stars = document.querySelectorAll('.star');
+  let selectedRating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      selectedRating = star.getAttribute('data-value');
+      document.getElementById('rating').value = selectedRating;
+      stars.forEach(s => {
+        s.classList.toggle('selected', s.getAttribute('data-value') <= selectedRating);
+      });
+    });
+  });
+
+  document.getElementById('feedback-form').addEventListener('submit', function(event) {
+    if (!document.getElementById('rating').value) {
+      event.preventDefault();
+      alert("Please select a star rating.");
+    }
+  });
+</script>
+
+</body>
+</html>

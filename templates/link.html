@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection - Music & Mental Health</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🎶 Mindful Music</div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('link') }}">Connection</a></li>
+                <li><a href="{{ url_for('examples') }}">Examples</a></li>
+                <li><a href="{{ url_for('studies') }}">Studies</a></li>
+                <li><a href="{{ url_for('tips') }}">Tips</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="margin-top: 20px;">
+        <h1 >Music & Mental Health Connection</h1>
+        <p>Exploring how sound shapes our minds and emotions</p>
+    </section>
+
+    <div class="connection-graphic">
+        <img src="{{ url_for('static', filename='images/brain.gif') }}" alt="Music and Mental Health GIF">
+    </div>
+
+    <!-- Main Content Section -->
+    <section class="section">
+        <div class="genre">
+            <h2 style="color: #3B82F6;">How Music Impacts Mental Health</h2>
+            <p>Music has a profound effect on our emotional and psychological well-being. It can:</p>
+            <ul>
+                <li>🧘‍♂️ Reduce symptoms of depression and anxiety</li>
+                <li>❤️ Lower blood pressure and heart rate</li>
+                <li>🛌 Improve sleep quality and relaxation</li>
+                <li>🧠 Trigger the brain’s reward system (dopamine release)</li>
+                <li>💬 Enhance communication and emotional expression</li>
+            </ul>
+        </div>
+
+        <div class="genre">
+            <h3 style="color: #3B82F6;">Why It Works</h3>
+            <p>
+                Music stimulates the auditory cortex and connects with brain regions involved in emotions, memory, and movement.
+                Different tempos, rhythms, and keys influence our mood—calming, energizing, or even nostalgic depending on the style.
+            </p>
+        </div>
+
+        <div class="genre">
+            <h3 style="color: #3B82F6;">Types of Music Therapy</h3>
+            <ul>
+                <li>🎶 Receptive (Listening) Therapy</li>
+                <li>🎵 Active (Playing/Singing) Therapy</li>
+                <li>🖌️ Composition and Songwriting Therapy</li>
+                <li>🧘 Guided Music and Imagery (GMI)</li>
+            </ul>
+        </div>
+        
+        <blockquote>
+            "Music expresses that which cannot be said and on which it is impossible to be silent." – Victor Hugo
+        </blockquote>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mindful Music. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

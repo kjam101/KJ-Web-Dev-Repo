@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tips & Tricks - Music & Mental Health</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">🎶 Mindful Music</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('link') }}">Connection</a></li>
+      <li><a href="{{ url_for('examples') }}">Examples</a></li>
+      <li><a href="{{ url_for('studies') }}">Studies</a></li>
+      <li><a href="{{ url_for('tips') }}">Tips</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+  </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Random Tip for Your Mental Wellness 💡</h2>
+
+  <div id="randomTip" class="tip">
+    <!-- JavaScript will insert random tip here -->
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Mindful Music. All rights reserved.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+  //Array for tips and gifs
+  const tips = [
+  {
+    title: "Create a Mood Playlist",
+    text: "Build playlists for different emotions — like calm, energize, or uplift.",
+    gif: "static/images/playlist.gif"
+  },
+  {
+    title: "Start Your Morning with Positive Music",
+    text: "Listening to upbeat, cheerful songs when you wake up can set a positive tone.",
+    gif: "static/images/morning.gif"
+  },
+  {
+    title: "Use Music During Workouts",
+    text: "Fast-paced music can boost motivation and enjoyment during physical activity.",
+    gif: "static/images/workout.gif"
+  },
+  {
+    title: "Try Music Meditation",
+    text: "Find a slow instrumental track, sit comfortably, and focus on the music.",
+    gif: "static/images/meditation.gif"
+  },
+  {
+    title: "Learn to Play an Instrument",
+    text: "Learning music improves memory, focus, and emotional expression.",
+    gif: "static/images/instrument.gif"
+  },
+  {
+    title: "Listen Before Bedtime",
+    text: "Soft, slow music helps reduce stress and improve sleep quality.",
+    gif: "static/images/sleep.gif"
+  }
+];
+
+// Helper to shuffle array
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Get current state from localStorage
+let tipOrder = JSON.parse(localStorage.getItem('tipOrder'));
+let currentIndex = parseInt(localStorage.getItem('tipIndex'), 10);
+
+// If no state, initialize it
+if (!tipOrder || !Array.isArray(tipOrder) || tipOrder.length !== tips.length) {
+  tipOrder = shuffle([...Array(tips.length).keys()]);
+  currentIndex = 0;
+} else {
+  currentIndex = (currentIndex + 1) % tips.length;
+}
+
+// Save updated state
+localStorage.setItem('tipOrder', JSON.stringify(tipOrder));
+localStorage.setItem('tipIndex', currentIndex);
+
+// Get current tip
+const tip = tips[tipOrder[currentIndex]];
+
+// Display tip
+const tipDiv = document.getElementById('randomTip');
+tipDiv.innerHTML = `
+  <h3>${tip.title}</h3>
+  <p>${tip.text}</p>
+  <img src="${tip.gif}" alt="Tip GIF" class="tip-gif" style="max-width: 100%; height: auto; margin-top: 1em;">
+`;
+  </script>
+
+</body>
+</html>
