@@ -39,5 +39,18 @@ python app.py
 6. Open your browser and visit:
 http://127.0.0.1:5000
 
+Dependencies
+Flask
+
+Flask-SQLAlchemy (for SQLite integration)
+
+Flask-WTF (for form handling)
+
+SQLite (for database management)
+
+You can install the required dependencies using:
+pip install -r requirements.txt
+
+
 
 
